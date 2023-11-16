@@ -25,3 +25,66 @@ if ($conn->connect_error) {
 $sql = "SELECT * FROM asistencia";
 $result = $conn->query($sql);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel del Administrador - Control de Asistencia</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- admin.php -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="index.php">Control de Asistencia</a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="agregar_profesor.php">Agregar Profesor</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="ver_profesores.php">Ver Profesor</a>
+        </li>
+    </ul>
+</nav>
+
+<!-- ... (código anterior) ... -->
+
+<div class="container mt-4">
+    <h2>Panel del Administrador</h2>
+    <div class="form-group">
+        <label for="search">Buscar por DNI o Usuario:</label>
+        <input type="text" class="form-control" id="search" placeholder="Ingrese DNI o Usuario">
+        <button class="btn btn-primary mt-2" onclick="searchTable()">Buscar</button>
+    </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>DNI</th>
+                <th>Entrada</th>
+                <th>Salida</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td>" . $row["id"] . "</td>";
+                    echo "<td>" . $row["dni"] . "</td>";
+                    echo "<td>" . $row["entrada"] . "</td>";
+                    echo "<td>" . $row["salida"] . "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='4'>No se encontraron registros de asistencia.</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="admin.php">Cerrar Sesión</a>
+</div>
