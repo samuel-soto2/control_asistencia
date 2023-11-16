@@ -88,3 +88,41 @@ $result = $conn->query($sql);
     </table>
     <a class="btn btn-primary" href="admin.php">Cerrar Sesión</a>
 </div>
+
+<script>
+function searchTable() {
+    var input, filter, table, tr, td, i, j, txtValue;
+    input = document.getElementById("search");
+    filter = input.value.toUpperCase();
+    table = document.getElementsByTagName("table")[0];
+    tr = table.getElementsByTagName("tr");
+
+    for (i = 1; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            if (td[j]) {
+                txtValue = td[j].textContent || td[j].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                    break;
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+}
+</script>
+
+<!-- ... (código posterior) ... -->
+
+
+<!-- ... (código posterior) ... -->
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
