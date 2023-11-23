@@ -6,6 +6,7 @@
     <link rel="icon" href="https://th.bing.com/th/id/R.9410aeb94b89a3d2642c3397aee02704?rik=11nccvc0wQFIFA&pid=ImgRaw&r=0" type="image/png">
     <title>Control de Asistencia</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
 
@@ -41,3 +42,14 @@
 
 </body>
 </html>
+<style>
+        /* Estilos adicionales, si los necesitas */
+        body {
+            background-image: url('https://www.senati.edu.pe/conexionsenati/wp-content/uploads/2021/07/IPSOS-SENATI.jpg');
+    /* Ajustar el tamaño y la posición de la imagen */
+    background-size: 165%; /* Reducir al 50% del tamaño original */
+    background-position: center; /* Para centrar la imagen */
+    /* Otros estilos para el cuerpo */
+    /* ... */
+        }
+    </style>
